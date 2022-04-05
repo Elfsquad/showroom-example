@@ -1,0 +1,26 @@
+<div class="feature">
+  <div class="header">
+    <span [innerHTML]="feature?.description"></span>
+    <input 
+     type="checkbox"
+     [checked]="feature?.isSelected"
+     (click)="toggle()"
+     *ngIf="feature?.type === 0"
+    />
+    <input 
+     type="radio"
+     [checked]="feature?.isSelected"
+     (click)="toggle()"
+     *ngIf="feature?.type === 2"
+    />
+  </div>
+  <span *ngIf="feature?.minValue == feature?.maxValue && feature?.value != 0 && feature?.value != 1">
+    {{feature?.value}} {{feature?.unitOfMeasurement}}
+  </span>
+  <span>{{feature?.unitPrice}}</span>
+  <app-feature 
+    [feature]="f" 
+    *ngFor="let f of feature?.features"
+    ></app-feature>
+</div>
+

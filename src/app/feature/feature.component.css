@@ -1,0 +1,13 @@
+div.feature {
+  width: 100%;
+  height: 100%;
+  margin-left: 24px;
+  margin-bottom: 6px;
+}
+
+div.feature > div.header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+

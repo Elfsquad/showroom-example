@@ -1,0 +1,45 @@
+<h3>Request quote</h3>
+
+<div *ngIf="!isSubmitted">
+  <form>
+    <label>
+      First name:
+      <input [(ngModel)]="model.firstName" name="firstName" />
+    </label>
+    <label>
+      Last name:
+      <input [(ngModel)]="model.lastName" name="lastName" />
+    </label>
+    <label>
+      Email:
+      <input [(ngModel)]="model.email" name="email" />
+    </label>
+    <label>
+      Phone:
+      <input [(ngModel)]="model.phoneNumber" name="phone" />
+    </label>
+    <label>
+      Company name:
+      <input [(ngModel)]="model.companyName" name="companyName" />
+    </label>
+    <label>
+      Street:
+      <input [(ngModel)]="model.streetName" name="streetName" />
+    </label>
+    <label>
+      City:
+      <input [(ngModel)]="model.city" name="city" />
+    </label>
+    <label>
+      Postal code:
+      <input [(ngModel)]="model.postalCode" name="state" />
+    </label>
+    <input type="submit" value="Submit" (click)="requestQuote()" />
+  </form>
+</div>
+
+<div *ngIf="isSubmitted">
+  <h3>Thank you for your request!</h3>
+  <p>We will contact you shortly.</p>
+</div>
+

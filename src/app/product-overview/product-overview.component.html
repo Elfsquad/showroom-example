@@ -1,0 +1,7 @@
+<div class="product-overview">
+  <div *ngFor="let model of configurationModels" class="product" [routerLink]="['configure', model.featureModelId]">
+    <img [src]="model.imageUrl" />
+    <h3 [innerHTML]="model.description"></h3>
+  </div>
+</div>
+

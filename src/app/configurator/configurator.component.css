@@ -1,0 +1,14 @@
+div.step {
+  display: none;
+  max-width: 400px;
+}
+
+div.step.active {
+  display: block;
+}
+
+div.footer {
+  margin-top: 12px;
+  margin-left: 24px;
+}
+
