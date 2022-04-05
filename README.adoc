@@ -24,6 +24,13 @@ Create a new Angular project using the Angular CLI.
 ng new ShowroomExample --routing=true --style=css --skipTests=true
 ```
 
+Once that's finished, you should be able to run the application and open
+it on http://localhost:4200[localhost:4200].
+
+```bash
+ng serve
+```
+
 ### Installing dependencies
 For this tutorial, we'll make use of the
 https://github.com/elfsquad/authentication[@elfsquad/authentication] and
@@ -126,14 +133,6 @@ const routes: Routes = [
   exports: [RouterModule]
 })
 export class AppRoutingModule { }
-```
-
-Now you should be able to run the application and open it on
-http://localhost:4200[localhost:4200]. You should see a
-'product-overview works!' message.
-
-```bash
-ng serve
 ```
 
 ### Retrieving the configuration models
@@ -388,6 +387,8 @@ export class FeatureComponent implements OnInit {
 ### Toggling features on/off
 For this example, we'll only enable toggling features on and off, so
 we'll only have to implement the `toggle()` function.
+
+This function will (de)select an option within the configuration model.
 
 ```ts
   toggle(): void {
