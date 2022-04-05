@@ -12,8 +12,7 @@ your customer-facing showroom in Angular.
 
 You can find the resulting project in the `dist` directory. 
 
- ℹ️  If you're not familiar with Angular, you can follow the
- https://angular.io/start[Angular getting started guide].
+ ℹ️  If you're not familiar with Angular, you can follow the https://angular.io/start[Angular getting started guide].
 
 ## Setting up a new Angular project
 Create a new Angular project using the Angular CLI.
