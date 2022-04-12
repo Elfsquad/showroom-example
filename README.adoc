@@ -102,7 +102,7 @@ const configuratorContext = new ConfiguratorContext(options);
 export class AppModule { }
 ```
 
- ⚠️  Make sure to replace the `tenantId` with your tenant id
+> ⚠️  Make sure to replace the `tenantId` with your tenant id
 
 ## Creating the product overview page
 We start by creating a `ProductOverview` component. This component will
