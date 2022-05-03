@@ -63,8 +63,37 @@ And in the `app.component.html` file, we'll remove everything but the
 `<router-outlet></router-outlet>` tag.
 
 ### Creating the configurator context
-We communicate with the Elfsquad API through the configurator context.
-We can initialize this class in the `app.module.ts` file.
+
+We communicate with the Elfsquad API through the `ConfiguratorContext`.
+We can initialize this class in the `app.module.ts` file. The
+configurator context can be used for both anonymous and showrooms that
+require a logged in user.
+
+If you want to require a logged in user, you can need to add a few
+snippets of code to the example below.
+
+. Add the `authenticationOptions` to the `configuratorOptions` object:
+```ts
+const options = {
+  tenantId: '5dcd73c7-c0e9-44e8-85f3-dfef7553e8a2',
+  authenticationMethod: AuthenticationMethod.USER_LOGIN,
+  authenticationOptions: {
+    clientId: '60a98ec8-c9f7-4b4e-a809-0492f25b8037',
+    redirectUri: 'http://localhost:4200',
+  }
+};
+```
+
+. Check if the user is logged in and if not, redirect to the login page.
+```ts
+const configuratorContext = new ConfiguratorContext(options);
+configuratorContext.authenticationContext.isSignedIn().then(signedIn => {
+  if (signedIn) {
+    return;
+  }
+  configuratorContext.authenticationContext.signIn();
+});
+```
 
 ```ts
 import { NgModule } from '@angular/core';
