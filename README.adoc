@@ -3,6 +3,8 @@
 :toclevels: 9
 
 # Custom showroom made in Angular 
+This is an example of a custom showroom made in Angular. A preview can
+be found https://:https://elfsquad.github.io/showroom-example/[here].
 
 toc::[]
 
