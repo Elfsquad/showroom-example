@@ -1,5 +1,5 @@
 import { Component, Input, OnInit } from '@angular/core';
-import { ConfigurationFeature, ConfiguratorContext } from '@elfsquad/configurator';
+import { ConfigurationFeature, Configuration } from '@elfsquad/configurator';
 
 @Component({
   selector: 'app-feature',
@@ -8,10 +8,9 @@ import { ConfigurationFeature, ConfiguratorContext } from '@elfsquad/configurato
 })
 export class FeatureComponent implements OnInit {
   @Input('feature') feature: ConfigurationFeature | undefined;
+  @Input('configuration') configuration: Configuration | undefined;
 
-  constructor(
-    private configuratorContext: ConfiguratorContext
-  ) { }
+  constructor() { }
 
   ngOnInit(): void { }
 
@@ -19,12 +18,15 @@ export class FeatureComponent implements OnInit {
     if (!this.feature)
       return;
 
+    if (!this.configuration)
+      return;
+
     const value = this.feature.isSelected ? 0 : 1;
-    this.configuratorContext.updateRequirement(
+    this.configuration.updateRequirement(
       this.feature.id,
       this.feature.isSelected,
       value
-    );
+    )
   }
 }
 

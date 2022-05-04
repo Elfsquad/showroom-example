@@ -19,6 +19,7 @@
   </span>
   <span>{{feature?.unitPrice}}</span>
   <app-feature 
+    [configuration]="configuration"
     [feature]="f" 
     *ngFor="let f of feature?.features"
     ></app-feature>

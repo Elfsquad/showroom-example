@@ -8,7 +8,7 @@ import { Configuration, ConfiguratorContext } from '@elfsquad/configurator';
   styleUrls: ['./configurator.component.css']
 })
 export class ConfiguratorComponent implements OnInit {
-  public configuration: Configuration | null = null;
+  public configuration: Configuration | undefined;
   public activeIndex: number = 0;
 
   constructor(

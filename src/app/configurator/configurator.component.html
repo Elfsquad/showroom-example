@@ -1,6 +1,6 @@
 <div *ngFor="let step of configuration?.steps ?? []; let i = index">
   <div class="step" [class.active]="i === activeIndex">
-    <app-feature [feature]="feature" *ngFor="let feature of step.features"></app-feature>
+    <app-feature [configuration]="configuration" [feature]="feature" *ngFor="let feature of step.features"></app-feature>
   </div>
 </div>
 
