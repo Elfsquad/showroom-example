@@ -273,7 +273,7 @@ import { Configuration, ConfiguratorContext } from '@elfsquad/configurator';
   styleUrls: ['./configurator.component.css']
 })
 export class ConfiguratorComponent implements OnInit {
-  public configuration: Configuration | null = null;
+  public configuration: Configuration | undefined;
 
   constructor(
     private route: ActivatedRoute,
@@ -338,7 +338,7 @@ the `app-feature` tag. This is a component we'll create in the next step.
 ```html
 <div *ngFor="let step of configuration?.steps ?? []; let i = index">
   <div class="step" [class.active]="i === activeIndex">
-    <app-feature [feature]="feature" *ngFor="let feature of step.features"></app-feature>
+    <app-feature [configuration]="configuration" [feature]="feature" *ngFor="let feature of step.features"></app-feature>
   </div>
 </div>
 
@@ -405,10 +405,9 @@ import { ConfigurationFeature, ConfiguratorContext } from '@elfsquad/configurato
 })
 export class FeatureComponent implements OnInit {
   @Input('feature') feature: ConfigurationFeature | undefined;
+  @Input('configuration') configuration: Configuration | undefined;
 
-  constructor(
-    private configuratorContext: ConfiguratorContext
-  ) { }
+  constructor( ) { }
 
   ngOnInit(): void { }
 }
@@ -425,8 +424,11 @@ This function will (de)select an option within the configuration model.
     if (!this.feature)
       return;
 
+    if (!this.configuration)
+      return;
+
     const value = this.feature.isSelected ? 0 : 1;
-    this.configuratorContext.updateRequirement(
+    this.configuration.updateRequirement(
       this.feature.id,
       this.feature.isSelected,
       value
@@ -460,6 +462,7 @@ For displaying features, we'll add some HTML to the
   </span>
   <span>{{feature?.unitPrice}}</span>
   <app-feature 
+    [configuration]="configuration"
     [feature]="f" 
     *ngFor="let f of feature?.features"
     ></app-feature>
